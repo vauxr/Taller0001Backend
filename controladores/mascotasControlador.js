@@ -1,5 +1,4 @@
 import Sequelize  from "sequelize";
-
 import {mascotas} from "../modelos/mascotas.js"
  // create a data in table
   const crear = (req, res) => {
@@ -26,7 +25,7 @@ import {mascotas} from "../modelos/mascotas.js"
 
   }
   //find all data from a table
-   const encontrarTodo = (req,res)=>{
+   const buscar = (req,res)=>{
    
    //implementing create function 
    mascotas.findAll().then(result => {
@@ -39,7 +38,7 @@ import {mascotas} from "../modelos/mascotas.js"
     
 }
   //find a data by ID
-   const encontrarId = (req,res)=>{
+   const buscarId = (req,res)=>{
     //getting a condition 
     const id  =  req.params.id
      if(id ==  null ){
@@ -60,7 +59,7 @@ import {mascotas} from "../modelos/mascotas.js"
    }
 
   // update an existing data
-  const actualizarData= (req,res)=>{
+  const actualizar= (req,res)=>{
   const id  =  req.params.id
    const nombre = req.body.nombre;
    const edad =  req.body.edad;
@@ -109,6 +108,6 @@ import {mascotas} from "../modelos/mascotas.js"
    });
   }
 
-  export {crear,encontrarId,encontrarTodo,actualizarData,eliminar,eliminarTodo}
+  export {crear,buscarId,buscar,actualizar,eliminar,eliminarTodo}
 
 

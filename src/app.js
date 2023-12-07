@@ -2,9 +2,9 @@ import express from "express";
 import cors from "cors";
 
 import {db} from "../database/conexion.js"
+import {routerMascotas} from "../rutas/mascotasRouter.js"
 
 const app = express();
-import {crear,encontrarId,encontrarTodo,actualizarData,eliminar,eliminarTodo} from "../controladores/mascotasControlador.js";
 
 
 //checking if dtabase is successfuly connected or not
@@ -18,34 +18,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors("*"));
 
-app.get('/',(req,res)=>{
- res.send("hello world")
-});
 
-// create an item in table
-  app.post('/create',(req,res)=>{
-    crear(req,res)    
-  })
-//find items by some condition
-  app.get('/findall',(req,res)=>{
-    encontrarTodo(req,res)
-  })
-  // find an item with its id
-  app.get('/findbyid/:id',(req,res)=>{
-    encontrarId(req,res)
-  })
-  //updating certain item with some conditions
-  app.put('/update/:id',(req,res)=>{
-    actualizarData(req,res)
-  })
-  //delete an item with id or some condition
-  app.delete('/delete/:id', (req,res)=>{
-       eliminar(req,res);
-  })
- //delete every item from table
-  app.delete('/deleteall', (req,res)=>{
-   eliminarTodo(req,res);
-  })
+app.use('/mascotas', routerMascotas);
 
 const PORT = process.env.PORT || 8000;
 db.sync().then(() => {
