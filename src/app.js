@@ -3,7 +3,6 @@ import cors from "cors";
 
 import {db} from "../database/conexion.js"
 import {routerMascotas} from "../rutas/mascotasRouter.js"
-
 const app = express();
 
 

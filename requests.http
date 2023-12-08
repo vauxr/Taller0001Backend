@@ -5,19 +5,20 @@ POST http://localhost:8000/mascotas/crear HTTP/1.1
 Content-Type: application/json
 
 {
-    "nombre": "Toby",
-    "edad": 5
+    "nombre": "Princesa",
+    "edad": 4
 }
 
 ###
-GET http://localhost:8000/mascotas/buscarId/1 HTTP/1.1
+GET http://localhost:8000/mascotas/buscarId/6 HTTP/1.1
 
 ###
-PUT http://localhost:8000/mascotas/actualizar/1 HTTP/1.1
+PUT http://localhost:8000/mascotas/actualizar/6 HTTP/1.1
 Content-Type: application/json
 
 {
-    "nombre":"Guardian"
+    "nombre":"Max",
+    "edad":10
 }
 
 ###
